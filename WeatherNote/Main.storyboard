@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kLx-Vr-KHn">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="6EU-sO-NSk">
+            <objects>
+                <viewController id="kLx-Vr-KHn" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GDc-jt-mhq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spring.png" id="O6D-GH-vo6">
+                                <rect key="frame" x="73" y="47" width="175" height="312"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EoJ-TE-A63">
+                                <rect key="frame" x="99" y="376" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="开启美好的一天">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cfY-Th-aGm" kind="modal" identifier="ShowWeather" modalTransitionStyle="flipHorizontal" id="fuY-eU-rGI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sNJ-zN-m54" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="266" y="119"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RwM-9T-uHU">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="cfY-Th-aGm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Dkv-M4-m8a"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Bgd-dE-IvL">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="W48-sY-yw4" kind="relationship" relationship="viewControllers" id="InD-HA-Eue"/>
+                        <segue destination="iLh-id-igs" kind="relationship" relationship="viewControllers" id="amc-tk-1GW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0rr-gh-myS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="718" y="119"/>
+        </scene>
+        <!--City Picker View Controller - 选择城市-->
+        <scene sceneID="mll-G3-PRw">
+            <objects>
+                <tableViewController id="DdT-nH-uCB" customClass="CityPickerViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="E4k-5f-nB8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" id="2Zp-bu-yf2">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Zp-bu-yf2" id="Au9-in-5Gd">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="选择城市" id="TYJ-7l-a4W">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="G6m-R2-egl">
+                            <connections>
+                                <segue destination="eYT-ZQ-XHA" kind="unwind" unwindAction="cancel:" id="U9H-mG-cNd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="5A0-K1-sEZ">
+                            <connections>
+                                <segue destination="eYT-ZQ-XHA" kind="unwind" unwindAction="done:" id="4zP-Qo-MJn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bnf-GN-GSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eYT-ZQ-XHA" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2516" y="-182"/>
+        </scene>
+        <!--Weather Animation View Controller-->
+        <scene sceneID="JvF-xd-MFW">
+            <objects>
+                <viewController id="3SN-Vn-3ks" customClass="WeatherAnimationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ETV-zw-FMh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scene.png" id="bEY-Qk-aMO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="86W-k9-Yys">
+                                <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="返回">
+                                    <color key="titleColor" red="0.058823529409999999" green="0.078431372550000003" blue="0.078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gfC-7m-l17" kind="unwind" unwindAction="backFromAnimation:" id="WLi-M2-qaS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="bEY-Qk-aMO" id="5yJ-bW-P7m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KIR-NS-ZMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gfC-7m-l17" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2147" y="-768"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1SF-tC-Zco">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="h0F-Pq-puj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="m2F-qc-tXQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ok2-u4-SaC">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DdT-nH-uCB" kind="relationship" relationship="rootViewController" id="cqL-MA-IXM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RAG-Kg-PhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2142" y="-182"/>
+        </scene>
+        <!--Navigation Controller - 心晴日记-->
+        <scene sceneID="jdi-qw-6x3">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="iLh-id-igs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="心晴日记" image="note.png" id="PW3-IH-4yJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ms-rl-fhJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.34457218336563411" green="0.74800701530612246" blue="0.19244327059789665" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sKf-gh-zdg" kind="relationship" relationship="rootViewController" id="s7i-zf-Frq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ob-eV-YvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221" y="463"/>
+        </scene>
+        <!--Note List View Controller - 心晴日记-->
+        <scene sceneID="nXg-St-TyD">
+            <objects>
+                <tableViewController id="sKf-gh-zdg" customClass="NoteListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cOV-i1-88Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteListCell" id="HG6-N2-fOY">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HG6-N2-fOY" id="bfT-us-Qfh">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="vBp-zf-f2P" kind="push" identifier="ShowNote" id="PfH-bb-IgZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sKf-gh-zdg" id="JJK-OI-1st"/>
+                            <outlet property="delegate" destination="sKf-gh-zdg" id="GoH-f7-mCm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="心晴日记" id="3J7-6m-L0x">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="P6E-pg-8LD">
+                            <connections>
+                                <segue destination="vBp-zf-f2P" kind="push" identifier="WriteNote" id="DpK-hb-PV5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGZ-Fi-lGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1624" y="463"/>
+        </scene>
+        <!--Note Detail View Controller-->
+        <scene sceneID="cyN-fY-fYr">
+            <objects>
+                <viewController id="vBp-zf-f2P" customClass="NoteDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2u9-5j-GuV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="在此写新日记..." id="euv-Qj-Gwz">
+                                <rect key="frame" x="0.0" y="100" width="320" height="380"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date and weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mls-wq-raZ">
+                                <rect key="frame" x="20" y="71" width="216" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DUh-em-sYh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Yxd-H0-LOT"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dateAndWeatherLabel" destination="mls-wq-raZ" id="w6P-Cs-93J"/>
+                        <outlet property="textView" destination="euv-Qj-Gwz" id="vBp-Jd-QGW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oxb-r5-kyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2009" y="463"/>
+        </scene>
+        <!--Navigation Controller - 天气预报-->
+        <scene sceneID="m5P-Rs-zNF">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="W48-sY-yw4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="天气预报" image="tianqi.png" id="dDZ-2V-uAU"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R9Y-Us-Zjb">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nqf-Ec-8KR" kind="relationship" relationship="rootViewController" id="q7F-gy-urr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mhk-ZG-3Cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1267" y="-188"/>
+        </scene>
+        <!--Weather View Controller - 天气预报-->
+        <scene sceneID="w3t-O0-qxF">
+            <objects>
+                <tableViewController id="nqf-Ec-8KR" customClass="WeatherViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="CVd-I9-rG5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherCell" id="F63-TD-Iki">
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F63-TD-Iki" id="QHb-b9-XYQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="3SN-Vn-3ks" kind="modal" identifier="ShowAnimation" modalTransitionStyle="crossDissolve" id="TFT-ye-7vf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nqf-Ec-8KR" id="sDV-6T-9xo"/>
+                            <outlet property="delegate" destination="nqf-Ec-8KR" id="ZUL-tl-VZM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="天气预报" id="oTI-4h-4wV">
+                        <barButtonItem key="rightBarButtonItem" title="选择城市" width="16" id="Jq8-QI-aJI">
+                            <connections>
+                                <segue destination="h0F-Pq-puj" kind="modal" identifier="PickCity" id="G93-iT-NYr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jKY-CW-vsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="-188"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="note.png" width="32" height="32"/>
+        <image name="scene.png" width="640" height="920"/>
+        <image name="spring.png" width="262" height="480"/>
+        <image name="tianqi.png" width="32" height="32"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="PfH-bb-IgZ"/>
+    </inferredMetricsTieBreakers>
+</document>
